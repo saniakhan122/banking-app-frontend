@@ -1,0 +1,81 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+-->
+<div class="oj-flex oj-sm-justify-content-center oj-sm-align-items-center" style="min-height:100vh; background: linear-gradient(135deg, #e6ecf4 0%, #c0d5ee 100%);">
+  <div style="
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 28px rgba(52,69,99,0.12);
+      padding: 44px 38px 32px 38px;
+      max-width: 500px;
+      width: 100%;">
+    <div style="text-align:center; margin-bottom:28px;">
+      <span class="oj-ux-ico-lock" style="font-size:44px; color:#1564bf;"></span>
+      <h1 class="oj-typography-heading-lg" style="margin:14px 0 6px 0; color:#313949;">
+        Register For Internet Banking
+      </h1>
+      <div style="color:#777B80; font-size:1.1em;">Enjoy secure and seamless online access</div>
+      <div style="margin-top:10px;">
+        <span style="color:red;"><oj-bind-text value="[[errorMessage]]"></oj-bind-text></span>
+        <span style="color:green;"><oj-bind-text value="[[successMessage]]"></oj-bind-text></span>
+      </div>
+    </div>
+    <div id="form-container89">
+      <oj-c-form-layout direction="column" max-columns="2" id="registerForm" class="oj-sm-padding-2x">
+        <oj-c-input-text
+          id="customerId"
+          value="{{customerId}}"
+          label-hint="Customer ID"
+          required>
+        </oj-c-input-text>
+        <oj-c-input-text
+          id="accountNumber"
+          value="{{accountNumber}}"
+          label-hint="Account Number"
+          required>
+        </oj-c-input-text>
+        <oj-c-input-password
+          id="loginPassword"
+          value="{{loginPassword}}"
+          label-hint="Set Login Password"
+          required>
+        </oj-c-input-password>
+        <oj-c-input-password
+          id="confirmLoginPassword"
+          value="{{confirmLoginPassword}}"
+          label-hint="Confirm Login Password"
+          required>
+        </oj-c-input-password>
+        <oj-c-input-password
+          id="transactionPassword"
+          value="{{transactionPassword}}"
+          label-hint="Set Transaction Password"
+          required>
+        </oj-c-input-password>
+        <oj-c-input-password
+          id="confirmTransactionPassword"
+          value="{{confirmTransactionPassword}}"
+          label-hint="Confirm Transaction Password"
+          required>
+        </oj-c-input-password>
+        <oj-c-input-text
+          id="otp"
+          value="{{otp}}"
+          label-hint="Enter OTP"
+          required>
+        </oj-c-input-text>
+        <div class="oj-flex oj-sm-justify-content-center oj-sm-margin-top-4x" style="grid-column: 1 / span 2;">
+          <oj-c-button
+            id="submitBtn"
+            chroming="callToAction"
+            on-oj-action="[[submitRegistration]]"
+            label="Register"
+            style="min-width:160px;font-weight:600;">
+          </oj-c-button>
+        </div>
+      </oj-c-form-layout>
+    </div>
+  </div>
+</div>

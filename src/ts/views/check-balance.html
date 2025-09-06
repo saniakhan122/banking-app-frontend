@@ -1,0 +1,67 @@
+<style>
+  .check-balance-container {
+    max-width: 380px;
+    margin: 48px auto 0 auto;
+    padding: 32px 24px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(60,80,140,0.08);
+    text-align: center;
+  }
+  .check-balance-title {
+    margin-bottom: 10px;
+    color: #1a237e;
+    font-size: 2em;
+  }
+  .check-balance-error {
+    color: #d32f2f;
+    min-height: 18px;
+    margin-bottom: 8px;
+    font-size: 1.05em;
+  }
+  .balance-form {
+    margin-top: 18px;
+    text-align: left;
+  }
+  .balance-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+  }
+  .balance-result {
+    margin-top: 26px;
+    text-align: center;
+    font-size: 1.22em;
+    color: #388e3c;
+    font-weight: 500;
+    min-height: 28px;
+  }
+</style>
+
+<div class="check-balance-container oj-hybrid-padding">
+  <h1 class="check-balance-title">Check Account Balance</h1>
+  <div class="check-balance-error">
+    <oj-bind-text value="[[errorMessage]]"></oj-bind-text>
+  </div>
+  <oj-c-form-layout id="balanceForm" class="balance-form">
+    <!-- Account Number Input -->
+    <oj-c-input-text
+      id="accountNumberInput"
+      value="{{accountNumber}}"
+      label-hint="Account Number">
+    </oj-c-input-text>
+    <!-- Button -->
+    <div class="balance-btn-container">
+      <oj-c-button 
+        id="checkBalanceBtn" 
+        on-oj-action="[[checkBalance]]" 
+        chroming="callToAction"
+        label="Check Balance">
+      </oj-c-button>
+    </div>
+    <!-- Display Balance -->
+    <div class="balance-result">
+      <span>Balance: </span><oj-bind-text value="[[balance]]"></oj-bind-text>
+    </div>
+  </oj-c-form-layout>
+</div>

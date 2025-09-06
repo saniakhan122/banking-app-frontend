@@ -1,0 +1,75 @@
+<style>
+  .approval-form-container {
+    max-width: 400px;
+    margin: 56px auto 0 auto;
+    padding: 32px 28px 30px 28px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(44,80,140,0.09);
+    text-align: center;
+  }
+  .approval-form-title {
+    margin-bottom: 10px;
+    color: #1a237e;
+    font-size: 2em;
+    font-weight: 600;
+  }
+  .approval-form-error {
+    color: #d32f2f;
+    min-height: 18px;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+  }
+  .approval-form-content {
+    margin-top: 14px;
+    text-align: left;
+  }
+  .approval-form-btns {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 18px;
+  }
+</style>
+
+<div class="approval-form-container oj-hybrid-padding">
+  <h1 class="approval-form-title">Approval / Rejection Form</h1>
+  <div class="approval-form-error">
+    <oj-bind-text value="[[errorMessage]]"></oj-bind-text>
+  </div>
+  <oj-c-form-layout id="approvalForm" class="approval-form-content">
+    <!-- Request ID Input -->
+    <oj-c-input-text
+      id="requestIdInput"
+      value="{{requestId}}"
+      label-hint="Request ID">
+    </oj-c-input-text>
+    <!-- Admin Username Input -->
+    <oj-c-input-text
+      id="adminUsernameInput"
+      value="{{adminUsername}}"
+      label-hint="Admin Username">
+    </oj-c-input-text>
+    <!-- Rejection Reason Input -->
+    <oj-c-input-text
+      id="reasonInput"
+      value="{{reason}}"
+      label-hint="Rejection Reason">
+    </oj-c-input-text>
+    <!-- Buttons -->
+    <div class="approval-form-btns">
+      <oj-c-button 
+        id="approveBtn" 
+        on-oj-action="[[approveAction]]" 
+        chroming="callToAction"
+        label="Approve">
+      </oj-c-button>
+      <oj-c-button 
+        id="rejectBtn" 
+        on-oj-action="[[rejectAction]]" 
+        label="Reject"
+        chroming="danger">
+      </oj-c-button>
+    </div>
+  </oj-c-form-layout>
+</div>

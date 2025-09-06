@@ -1,0 +1,129 @@
+<!-- dashboard.html -->
+<div class="oj-hybrid-padding">
+  <h1>Customer Dashboard</h1>
+
+  <!-- Welcome, Full Name -->
+  <h2>Welcome, <oj-bind-text value="[[fullName]]"></oj-bind-text>!</h2>
+
+  <!-- All customer details (shown only if customerDetails is not null) -->
+   <!-- Show customer details only if the object is not null -->
+<!-- <div data-bind="if: customerDetails">
+  <div data-bind="with: customerDetails">
+    <p><b>Customer ID:</b> <oj-bind-text value="[[customerId]]"></oj-bind-text></p>
+    <p><b>Email:</b> <oj-bind-text value="[[email]]"></oj-bind-text></p>
+    <p><b>Aadhaar Number:</b> <oj-bind-text value="[[aadharNumber]]"></oj-bind-text></p>
+    <p><b>Full Name:</b> <oj-bind-text value="[[fullName]]"></oj-bind-text></p>
+    <p><b>Mobile Number:</b> <oj-bind-text value="[[mobileNumber]]"></oj-bind-text></p>
+    <p><b>Date of Birth:</b> <oj-bind-text value="[[dateOfBirth]]"></oj-bind-text></p>
+    <p><b>Occupation:</b> <oj-bind-text value="[[occupation]]"></oj-bind-text></p>
+    <p><b>Annual Income:</b> <oj-bind-text value="[[annualIncome]]"></oj-bind-text></p>
+    <p><b>Status:</b> <oj-bind-text value="[[status]]"></oj-bind-text></p>
+    <p><b>Permanent Address:</b> <oj-bind-text value="[[permanentAddress]]"></oj-bind-text></p>
+    <p><b>Residential Address:</b> <oj-bind-text value="[[residentialAddress]]"></oj-bind-text></p>
+    <p><b>Created At:</b> <oj-bind-text value="[[createdAt]]"></oj-bind-text></p>
+    <p><b>Service Ref No:</b> <oj-bind-text value="[[serviceReferenceNo]]"></oj-bind-text></p>
+  </div>
+  </div> -->
+
+  <!-- Dashboard actions -->
+  <!-- <oj-c-button label="Go to Fund Transfer" on-oj-action="[[goToFundTransfer]]"></oj-c-button>
+  <oj-c-button label="Check Account Balance" on-oj-action="[[goToCheckBalance]]"></oj-c-button>
+  <oj-c-button label="Display Account Statement" on-oj-action="[[goToAccountStatement]]"></oj-c-button>
+  <oj-c-button label="Deposit Money" on-oj-action="[[goToDeposit]]"></oj-c-button>
+  <oj-c-button label="Withdraw Money" on-oj-action="[[goToWithdraw]]"></oj-c-button>
+    <oj-c-button label="View Profile" on-oj-action="[[goToProfile]]"></oj-c-button>
+  <oj-c-button label="Change Password" on-oj-action="[[goToChangePWD]]"></oj-c-button> -->
+
+<div id="dashboard-actions" class="oj-flex oj-sm-flex-wrap-wrap oj-sm-justify-content-center oj-sm-padding-2x">
+  <oj-c-action-card
+    class="oj-sm-margin-4x"
+    on-oj-action="[[goToFundTransfer]]"
+    style="width:220px; min-height:130px;">
+  <div class="oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-justify-content-center"
+       style="height:100%; width:100%; text-align:center; background: linear-gradient(135deg, #ffe8dc 0%, #ffe4d0 100%);
+">      <span class="oj-ux-ico-transfer-money oj-typography-body-lg" style="font-size:32px; margin: 10px; color: #1564BF;"></span>
+      <span class="oj-typography-heading-sm">Fund Transfer</span>
+      <span class="oj-typography-body-sm oj-text-color-secondary" style="margin-top: 6px;">Send money to another account</span>
+    </div>
+  </oj-c-action-card>
+  <oj-c-action-card
+    class="oj-sm-margin-4x"
+    on-oj-action="[[goToCheckBalance]]"
+    style="width:220px; min-height:130px;">
+  <div class="oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-justify-content-center"
+       style="height:100%; width:100%; text-align:center; background: linear-gradient(135deg, #e6ecf4 0%, #c0d5ee 100%);">      <span class="oj-ux-ico-bank oj-typography-body-lg" style="font-size:32px; margin: 10px; color: #198038;"></span>
+      <span class="oj-typography-heading-sm">Account Balance</span>
+      <span class="oj-typography-body-sm oj-text-color-secondary" style="margin-top: 6px;">Check your balance</span>
+    </div>
+  </oj-c-action-card>
+<oj-c-action-card
+  class="oj-sm-margin-4x"
+  on-oj-action="[[goToAccountStatement]]"
+  style="width:220px; min-height:130px;">
+  <div class="oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-justify-content-center"
+       style="height:100%; width:100%; text-align:center; background: linear-gradient(135deg, #d1f3ee 0%, #b2e7dd 100%);">
+    <span class="oj-ux-ico-chart oj-typography-body-lg" style="font-size:32px; margin: 10px; color: #DB3A00;"></span>
+    <span class="oj-typography-heading-sm">Account Statement</span>
+    <span class="oj-typography-body-sm oj-text-color-secondary" style="margin-top: 6px;">View or download statement</span>
+  </div>
+</oj-c-action-card>
+  <oj-c-action-card
+    class="oj-sm-margin-4x"
+    on-oj-action="[[goToDeposit]]"
+    style="width:220px; min-height:130px;">
+  <div class="oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-justify-content-center"
+       style="height:100%; width:100%; text-align:center; background: linear-gradient(135deg, #ece8fa 0%, #d8daf6 100%);">      <span class="oj-ux-ico-deposits oj-typography-body-lg" style="font-size:32px; margin: 10px; color: #7044FF;"></span>
+      <span class="oj-typography-heading-sm">Deposit Money</span>
+      <span class="oj-typography-body-sm oj-text-color-secondary" style="margin-top: 6px;">Add funds to your account</span>
+    </div>
+  </oj-c-action-card>
+  <oj-c-action-card
+    class="oj-sm-margin-4x"
+    on-oj-action="[[goToWithdraw]]"
+    style="width:220px; min-height:130px;">
+  <div class="oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-justify-content-center"
+       style="height:100%; width:100%; text-align:center; background: linear-gradient(135deg, #f5f8e8 0%, #dde7c7 100%);
+">      <span class=" oj-ux-ico-currency-money oj-typography-body-lg" style="font-size:32px; margin: 10px; color: #B8336A;"></span>
+      <span class="oj-typography-heading-sm">Withdraw Money</span>
+      <span class="oj-typography-body-sm oj-text-color-secondary" style="margin-top: 6px;">Withdraw from your account</span>
+    </div>
+  </oj-c-action-card>
+  <oj-c-action-card
+    class="oj-sm-margin-4x"
+    on-oj-action="[[goToProfile]]"
+    style="width:220px; min-height:130px;">
+  <div class="oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-justify-content-center"
+       style="height:100%; width:100%; text-align:center; background: linear-gradient(135deg, #fde2e1 0%, #ffd6d1 100%);
+">      <span class="oj-ux-ico-profile-card oj-typography-body-lg" style="font-size:32px; margin: 10px; color: #1564BF;"></span>
+      <span class="oj-typography-heading-sm">View Profile</span>
+      <span class="oj-typography-body-sm oj-text-color-secondary" style="margin-top: 6px;">View your profile details</span>
+    </div>
+  </oj-c-action-card>
+  <oj-c-action-card
+    class="oj-sm-margin-4x"
+    on-oj-action="[[goToChangePWD]]"
+    style="width:220px; min-height:130px;">
+  <div class="oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-justify-content-center"
+       style="height:100%; width:100%; text-align:center; background: linear-gradient(135deg, #e7fffb 0%, #cdf2e6 100%);
+">      <span class="oj-ux-ico-lock oj-typography-body-lg" style="font-size:32px; margin: 10px; color: #DB3A00;"></span>
+      <span class="oj-typography-heading-sm">Change Password</span>
+      <span class="oj-typography-body-sm oj-text-color-secondary" style="margin-top: 6px;">Update your account password</span>
+    </div>
+  </oj-c-action-card>
+    <oj-c-action-card
+    class="oj-sm-margin-4x"
+    on-oj-action="[[logoutAction]]"
+    style="width:220px; min-height:130px;">
+  <div class="oj-flex oj-sm-flex-direction-column oj-sm-align-items-center oj-sm-justify-content-center"
+       style="height:100%; width:100%; text-align:center; background: linear-gradient(135deg, #ebeefd 0%, #d2e7fc 100%);
+
+">      <span class="oj-ux-ico-log-out oj-typography-body-lg" style="font-size:32px; margin: 10px; color: #DB3A00;"></span>
+      <span class="oj-typography-heading-sm">Logout</span>
+      <span class="oj-typography-body-sm oj-text-color-secondary" style="margin-top: 6px;">Logout</span>
+    </div>
+  </oj-c-action-card>
+</div>
+
+
+
+</div>

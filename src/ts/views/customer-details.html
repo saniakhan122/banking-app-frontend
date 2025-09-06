@@ -1,0 +1,85 @@
+<div data-bind="if: customerDetails">
+  <div data-bind="with: customerDetails">
+    <div class="oj-sm-margin-4x oj-flex oj-sm-justify-content-center">
+      <!-- Card Container -->
+      <div style="
+        background: linear-gradient(135deg, #e6ecf4 0%, #c0d5ee 100%);
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(52, 69, 99, 0.10);
+        padding: 32px 48px;
+        min-width: 340px;
+        max-width: 540px;
+        width: 100%;
+      ">
+        <!-- Heading -->
+        <div style="text-align:center; margin-bottom: 24px;">
+          <span class="oj-ux-ico-user" style="font-size: 48px; margin-bottom: 8px; color: #1564BF;"></span>
+          <h2 class="oj-typography-heading-lg" style="margin: 0; color: #313949;">
+            <oj-bind-text value="[[fullName]]"></oj-bind-text>
+          </h2>
+          <div class="oj-typography-body-md" style="color: #5A6273;">
+            <oj-bind-text value="[[email]]"></oj-bind-text>
+          </div>
+          <div style="color: #777B80; font-size: 0.95em;">
+            Customer ID: <oj-bind-text value="[[customerId]]"></oj-bind-text>
+          </div>
+        </div>
+        <!-- Details Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px 40px;">
+          <div>
+            <b>Aadhaar Number:</b>
+            <div><oj-bind-text value="[[aadharNumber]]"></oj-bind-text></div>
+          </div>
+          <div>
+            <b>Mobile Number:</b>
+            <div><oj-bind-text value="[[mobileNumber]]"></oj-bind-text></div>
+          </div>
+          <div>
+            <b>Date of Birth:</b>
+            <div><oj-bind-text value="[[dateOfBirth]]"></oj-bind-text></div>
+          </div>
+          <div>
+            <b>Occupation:</b>
+            <div><oj-bind-text value="[[occupation]]"></oj-bind-text></div>
+          </div>
+          <div>
+            <b>Annual Income:</b>
+            <div>
+              <oj-bind-text value="[[annualIncome]]"></oj-bind-text>
+            </div>
+          </div>
+          <div>
+            <b>Status:</b>
+            <div>
+              <oj-bind-text value="[[status]]"></oj-bind-text>
+            </div>
+          </div>
+          <div>
+            <b>Permanent Address:</b>
+            <div>
+              <oj-bind-text value="[[permanentAddress]]"></oj-bind-text>
+            </div>
+          </div>
+          <div>
+            <b>Residential Address:</b>
+            <div>
+              <oj-bind-text value="[[residentialAddress]]"></oj-bind-text>
+            </div>
+          </div>
+          <div>
+            <b>Created At:</b>
+            <div>
+              <oj-bind-text value="[[createdAt]]"></oj-bind-text>
+            </div>
+          </div>
+          <div>
+            <b>Service Ref No:</b>
+            <div>
+              <oj-bind-text value="[[serviceReferenceNo]]"></oj-bind-text>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

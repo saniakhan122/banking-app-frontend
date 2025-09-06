@@ -1,0 +1,52 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+-->
+<div class="oj-flex oj-sm-justify-content-center oj-sm-align-items-center" style="height:100vh; background: linear-gradient(135deg,#e6ecf4 0%,#c0d5ee 100%);">
+  <div style="
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 28px rgba(52,69,99,0.12);
+      padding: 44px 38px 32px 38px;
+      min-width: 340px;
+      max-width: 400px;
+      width: 100%;
+      margin-top: -60px;">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="oj-ux-ico-contact" style="font-size:44px; color:#db3a00;"></span>
+      <h1 class="oj-typography-heading-lg" style="margin:14px 0 4px 0; color:#313949;">Admin Login</h1>
+      <div style="color:#777B80; font-size:1.1em;">For authorized personnel</div>
+      <h3 style="color:red; margin-top:18px;font-weight:400;">
+        <oj-bind-text value="[[errorMessage]]"></oj-bind-text>
+      </h3>
+    </div>
+    <div id="form-container">
+      <oj-c-form-layout id="adminLoginForm" max-columns="1" label-edge="inside">
+        <oj-c-input-text
+          id="username"
+          value="{{username}}"
+          label-hint="Username"
+          required
+          placeholder="Enter your admin username">
+        </oj-c-input-text>
+        <oj-c-input-password
+          id="password"
+          value="{{password}}"
+          label-hint="Password"
+          required
+          placeholder="Enter your password">
+        </oj-c-input-password>
+        <div class="oj-flex oj-sm-justify-content-center oj-sm-margin-top-2x">
+          <oj-c-button
+            id="adminLoginButton"
+            chroming="callToAction"
+            on-oj-action="[[loginAction]]"
+            label="Login"
+            style="width: 90%;font-weight:600;">
+          </oj-c-button>
+        </div>
+      </oj-c-form-layout>
+    </div>
+  </div>
+</div>

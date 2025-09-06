@@ -1,0 +1,99 @@
+<!-- Beautify styles: Place in <head> or a CSS file -->
+<style>
+  .fund-transfer-container {
+    max-width: 440px;
+    margin: 48px auto 0 auto;
+    padding: 36px 28px 32px 28px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(60,80,140,0.07);
+    text-align: center;
+  }
+  .fund-transfer-title {
+    margin-bottom: 8px;
+    color: #1a237e;
+    font-size: 2em;
+  }
+  .fund-transfer-error {
+    color: #d32f2f;
+    min-height: 20px;
+    margin-bottom: 8px;
+    font-size: 1.08em;
+    font-weight: 500;
+  }
+  .fund-transfer-success {
+    color: #388e3c;
+    min-height: 20px;
+    margin-bottom: 22px;
+    font-size: 1.08em;
+    font-weight: 500;
+  }
+  .fund-transfer-form {
+    margin-top: 16px;
+    text-align: left;
+  }
+  .fund-transfer-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+</style>
+
+<div class="fund-transfer-container oj-hybrid-padding">
+  <h1 class="fund-transfer-title">Fund Transfer</h1>
+
+  <div class="fund-transfer-error">
+    <oj-bind-text value="[[errorMessage]]"></oj-bind-text>
+  </div>
+  <div class="fund-transfer-success">
+    <oj-bind-text value="[[successMessage]]"></oj-bind-text>
+  </div>
+
+  <oj-c-form-layout id="fundTransferForm" class="fund-transfer-form">
+    <oj-c-input-text
+      id="fromAccount"
+      value="{{fromAccount}}"
+      label-hint="From Account"
+      required>
+    </oj-c-input-text>
+
+    <oj-c-input-text
+      id="toAccount"
+      value="{{toAccount}}"
+      label-hint="To Account Number"
+      required>
+    </oj-c-input-text>
+
+    <oj-c-input-number
+      id="amount"
+      value="{{amount}}"
+      label-hint="Amount (₹)"
+      min="1"
+      step="0.01"
+      required>
+    </oj-c-input-number>
+
+    <oj-c-select-single
+      id="method"
+      value="{{method}}"
+      label-hint="Transfer Method"
+      required
+      data="[[transferMethodsDP]]"
+      item-text="label">
+    </oj-c-select-single>
+
+    <oj-c-input-text
+      id="remarks"
+      value="{{remarks}}"
+      label-hint="Remarks (optional)">
+    </oj-c-input-text>
+
+    <div class="fund-transfer-btn-container">
+      <oj-c-button
+        id="transferBtn"
+        on-oj-action="[[submitFundTransfer]]"
+        label="Transfer Funds">
+      </oj-c-button>
+    </div>
+  </oj-c-form-layout>
+</div>

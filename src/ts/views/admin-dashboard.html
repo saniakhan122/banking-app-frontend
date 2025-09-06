@@ -1,0 +1,72 @@
+<style>
+  .pending-requests-container {
+    max-width: 1200px;
+    margin: 52px auto 0 auto;
+    padding: 36px 32px 36px 32px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 28px rgba(60,80,140,.08);
+  }
+  .pending-requests-title {
+    color: #1a237e;
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .pending-requests-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 24px;
+  }
+  .pending-requests-action-bar {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  /* For mobile responsiveness */
+  @media (max-width: 700px) {
+    .pending-requests-container {padding: 8px;}
+    .pending-requests-title {font-size: 1.3em;}
+  }
+</style>
+
+<div class="pending-requests-container oj-hybrid-padding">
+  <div class="pending-requests-title">Pending Account Requests</div>
+  <div class="pending-requests-table-container">
+    <oj-table
+      id="pendingRequestsTable"
+      aria-label="Pending Account Requests"
+      accessibility.row-header="requestId"
+      data="[[pendingRequestsDP]]"
+      columns-default='{"sortable": "enabled"}'
+      columns='[
+        {"headerText": "Request ID", "field": "requestId"},
+        {"headerText": "Full Name", "field": "fullName"},
+        {"headerText": "Mobile", "field": "mobileNumber"},
+        {"headerText": "Email", "field": "email"},
+        {"headerText": "Account Type", "field": "accountType"},
+        {"headerText": "Status", "field": "status"},
+        {"headerText": "Submitted At", "field": "submittedAt"},
+        {"headerText": "Actions", "field": "requestId", "template": "actionCellTemplate"}
+      ]'>
+      <template slot="actionCellTemplate" data-oj-as="cell">
+        <div class="action-buttons">
+          <oj-c-button on-oj-action="[[approveAction.bind($current)]]" label="Approve"></oj-c-button>
+          <oj-c-button on-oj-action="[[rejectAction.bind($current)]]" label="Reject" class="oj-button-secondary"></oj-c-button>
+        </div>
+      </template>
+    </oj-table>
+  </div>
+  <div class="pending-requests-action-bar">
+    <oj-c-button label="Go to Approval Form" on-oj-action="[[goToApprovalForm]]"></oj-c-button>
+    <oj-c-button label="View Locked Accounts" on-oj-action="[[goToLockedAccounts]]"></oj-c-button>
+  </div>
+</div>

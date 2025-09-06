@@ -1,0 +1,67 @@
+<style>
+  .unlock-account-container {
+    max-width: 400px;
+    margin: 56px auto 0 auto;
+    padding: 32px 28px 30px 28px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(44,80,140,0.09);
+    text-align: center;
+  }
+  .unlock-account-title {
+    margin-bottom: 10px;
+    color: #1a237e;
+    font-size: 2em;
+    font-weight: 600;
+  }
+  .unlock-account-error {
+    color: #d32f2f;
+    min-height: 18px;
+    font-size: 1.09em;
+    margin-bottom: 5px;
+  }
+  .unlock-account-success {
+    color: #388e3c;
+    min-height: 18px;
+    font-size: 1.09em;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .unlock-account-form {
+    margin-top: 18px;
+    text-align: left;
+  }
+  .unlock-account-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+  }
+</style>
+
+<div class="unlock-account-container oj-hybrid-padding">
+  <h1 class="unlock-account-title">Unlock Account</h1>
+  <div class="unlock-account-error">
+    <oj-bind-text value="[[errorMessage]]"></oj-bind-text>
+  </div>
+  <div class="unlock-account-success">
+    <oj-bind-text value="[[successMessage]]"></oj-bind-text>
+  </div>
+  <oj-c-form-layout id="unlockForm" class="unlock-account-form">
+    <!-- Customer ID Input -->
+    <oj-c-input-text
+      id="customerIdInput"
+      value="{{customerId}}"
+      label-hint="Customer ID">
+    </oj-c-input-text>
+    <!-- Button -->
+    <div class="unlock-account-btn-container">
+      <oj-c-button 
+        id="unlockAccountBtn" 
+        on-oj-action="[[unlockAccount]]" 
+        chroming="callToAction"
+        label="Unlock Account">
+      </oj-c-button>
+    </div>
+  </oj-c-form-layout>
+</div>

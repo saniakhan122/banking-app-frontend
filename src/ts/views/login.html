@@ -1,0 +1,63 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+-->
+<div class="oj-flex oj-sm-justify-content-center oj-sm-align-items-center" style="height:100vh; background: linear-gradient(135deg, #e6ecf4 0%, #c0d5ee 100%);">
+  <div style="
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 28px rgba(52,69,99,0.11);
+      padding: 48px 38px 32px 38px;
+      min-width: 350px;
+      max-width: 400px;
+      width: 100%;
+      margin-top: -60px;">
+    <div style="text-align:center; margin-bottom: 32px;">
+      <span class="oj-ux-ico-lock" style="font-size:46px; color:#1564bf; margin-bottom: 16px;"></span>
+      <h1 class="oj-typography-heading-lg" style="margin:14px 0 2px 0;">Welcome Back</h1>
+      <div style="color: #757575; font-size: 1.1em;">Secure Internet Banking Login</div>
+      <h3 style="color:red; margin-top:18px;">
+        <oj-bind-text value="[[errorMessage]]"></oj-bind-text>
+      </h3>
+    </div>
+    <div id="form-container">
+      <oj-c-form-layout id="myform" max-columns="1" label-edge="inside">
+        <oj-c-input-text
+          id="inputtext"
+          value="{{customerId}}"
+          label-hint="Customer ID"
+          placeholder="Enter your Customer ID">
+        </oj-c-input-text>
+        <oj-c-input-password
+          id="inputpwd"
+          value="{{password}}"
+          label-hint="Password"
+          placeholder="Enter your password">
+        </oj-c-input-password>
+        <div class="oj-flex oj-sm-justify-content-center oj-sm-margin-top-2x">
+          <oj-c-button id="button1"
+            on-oj-action="[[loginAction]]"
+            chroming="callToAction"
+            label="Login"
+            style="width: 90%;">
+          </oj-c-button>
+        </div>
+        <div class="oj-flex oj-sm-justify-content-between oj-sm-margin-top-3x">
+          <oj-c-button id="button2"
+            chroming="outlined"
+            on-oj-action="[[forgotPassword]]"
+            label="Forgot Password"
+            style="width: 46%;">
+          </oj-c-button>
+          <oj-c-button id="button3"
+            chroming="outlined"
+            on-oj-action="[[forgotCustomerId]]"
+            label="Forgot Customer ID"
+            style="width: 46%;">
+          </oj-c-button>
+        </div>
+      </oj-c-form-layout>
+    </div>
+  </div>
+</div>

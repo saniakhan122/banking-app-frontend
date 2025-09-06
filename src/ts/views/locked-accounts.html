@@ -1,0 +1,54 @@
+<style>
+  .locked-accounts-container {
+    max-width: 1000px;
+    margin: 48px auto 0 auto;
+    padding: 36px 30px 34px 30px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(44,80,140,0.08);
+  }
+  .locked-accounts-title {
+    color: #1a237e;
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 22px;
+    text-align: center;
+  }
+  .locked-accounts-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 28px;
+  }
+  .locked-accounts-action-bar {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    gap: 12px;
+  }
+  @media (max-width: 700px) {
+    .locked-accounts-container {padding: 10px;}
+    .locked-accounts-title {font-size: 1.2em;}
+  }
+</style>
+
+<div class="locked-accounts-container oj-hybrid-padding">
+  <div class="locked-accounts-title">Locked Accounts</div>
+  <div class="locked-accounts-table-container">
+    <oj-table
+      id="lockedAccountsTable"
+      aria-label="Locked Accounts"
+      data="[[lockedAccountsDP]]"
+      columns-default='{"sortable": "enabled"}'
+      columns='[
+        {"headerText": "Customer ID", "field": "customerId"},
+        {"headerText": "User ID", "field": "userId"},
+        {"headerText": "Failed Attempts", "field": "failedLoginAttempts"},
+        {"headerText": "Locked Until", "field": "lockedUntil"},
+        {"headerText": "Last Login", "field": "lastLogin"}
+      ]'>
+    </oj-table>
+  </div>
+  <div class="locked-accounts-action-bar">
+    <oj-c-button label="Unlock Accounts" on-oj-action="[[goToUnlock]]"></oj-c-button>
+  </div>
+</div>

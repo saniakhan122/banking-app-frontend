@@ -1,0 +1,109 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+-->
+<!-- Redwood-inspired account opening card -->
+<div class="oj-flex oj-sm-justify-content-center oj-sm-align-items-center" style="min-height:100vh; background: linear-gradient(135deg, #e6ecf4 0%, #c0d5ee 100%);">
+  <div style="
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 6px 32px rgba(52,69,99,0.12);
+    padding: 48px 46px 38px 46px;
+    max-width: 600px;
+    width: 100%;
+    ">
+    <div style="text-align:center; margin-bottom:28px;">
+      <span class="oj-ux-ico-bank" style="font-size:44px; color:#1564bf;"></span>
+      <h1 class="oj-typography-heading-lg" style="margin:16px 0 6px 0; color:#313949;">Open a New Account</h1>
+      <div style="color: #65737E; font-size: 1.13em; margin-bottom: 4px;">Please fill out the form below to start your banking journey</div>
+      <div style="margin: 10px 0 0 0;">
+        <span style="color:red;"><oj-bind-text value="[[errorMessage]]"></oj-bind-text></span>
+        <span style="color:green;"><oj-bind-text value="[[successMessage]]"></oj-bind-text></span>
+      </div>
+    </div>
+    <div id="form-container">
+      <oj-c-form-layout direction="column" max-columns="2" id="accountForm" class="oj-sm-padding-2x">
+        <oj-c-input-text
+          id="fullName"
+          value="{{fullName}}"
+          label-hint="Full Name"
+          required
+        ></oj-c-input-text>
+        
+        <oj-c-input-text
+          id="email"
+          value="{{email}}"
+          label-hint="Email"
+          required
+        ></oj-c-input-text>
+
+        <oj-c-input-number
+          id="mobileNumber"
+          value="{{mobileNumber}}"
+          label-hint="Mobile Number"
+          required
+        ></oj-c-input-number>
+        
+        <oj-input-date
+          label-hint="Date of Birth"
+          value="{{dateOfBirth}}"
+          required
+        ></oj-input-date>
+        
+        <oj-c-input-number
+          id="aadharNumber"
+          value="{{aadharNumber}}"
+          label-hint="Aadhar Number"
+          required
+        ></oj-c-input-number>
+        
+        <oj-c-input-text
+          id="residentialAddress"
+          value="{{residentialAddress}}"
+          label-hint="Residential Address"
+          required
+        ></oj-c-input-text>
+        
+        <oj-c-input-text
+          id="permanentAddress"
+          value="{{permanentAddress}}"
+          label-hint="Permanent Address"
+          required
+        ></oj-c-input-text>
+        
+        <oj-c-input-text
+          id="occupation"
+          value="{{occupation}}"
+          label-hint="Occupation"
+          required
+        ></oj-c-input-text>
+        
+        <oj-c-input-number
+          id="annualIncome"
+          value="{{annualIncome}}"
+          label-hint="Annual Income"
+          step="0.01"
+          required
+        ></oj-c-input-number>
+        
+        <oj-c-select-single
+          data="[[accountTypesDP]]"
+          item-text="label"
+          value="{{accountType}}"
+          label-hint="Account Type"
+          required
+        ></oj-c-select-single>
+
+        <!-- Submit Button row (full width, centered) -->
+        <div class="oj-flex oj-sm-justify-content-center oj-sm-margin-top-4x" style="grid-column: 1 / span 2;">
+          <oj-c-button id="submitBtn" chroming="callToAction"
+            on-oj-action="[[submitApplication]]"
+            label="Submit Application"
+            style="min-width:180px; font-weight:600;">
+          </oj-c-button>
+        </div>
+      </oj-c-form-layout>
+    </div>
+  </div>
+</div>
